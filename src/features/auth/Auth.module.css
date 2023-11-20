@@ -1,0 +1,104 @@
+/* Container for the entire authentication component */
+.auth_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* Light gray background color */
+}
+
+/* Main authentication form wrapper */
+.auth_form_wrapper {
+  width: 350px; /* Adjust the width as needed */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Font styles */
+.auth_title {
+  font-family: "Playball", cursive;
+  font-weight: normal;
+  text-align: center;
+  font-size: 2em; /* Font size adjustment */
+  margin-bottom: 20px;
+}
+
+/* Error message styles */
+.auth_error {
+  color: #e91e63; /* Pink color */
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Container styles for sign-up form */
+.auth_signUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header image styles */
+.auth_headerImage {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* Text link styles */
+.auth_text {
+  color: #2196f3; /* Blue color */
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 15px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.auth_text:hover {
+  color: #1565c0; /* Darker blue on hover */
+}
+
+/* Loading spinner styles */
+.auth_progress {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Additional styling for form inputs */
+TextField {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* Button styles */
+Button {
+  background-color: rgba(33, 150, 243, 0.9);
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+Button:hover {
+  background-color: rgba(21, 101, 192, 0.9);
+}
+
+/* Alternative button style for secondary actions */
+.auth_secondary_button {
+  background-color: transparent;
+  color: #2196f3;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.auth_secondary_button:hover {
+  color: #1565c0;
+}

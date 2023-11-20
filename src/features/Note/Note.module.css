@@ -1,0 +1,56 @@
+/* Note.module.css */
+
+.note {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #ddd; /* より薄いボーダー */
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* ホバーエフェクトの追加 */
+}
+
+.note:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.userProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.userProfile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  object-fit: cover; /* 画像が円形になるように */
+}
+
+.noteContent {
+  flex: 1;
+}
+
+.noteContent p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333; /* よりダークなテキストカラー */
+}
+.newPostButton {
+  background-color: #2196f3; /* ボタンの背景色 */
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newPostButton:hover {
+  background-color: #1565c0; /* ホバー時の背景色 */
+}
