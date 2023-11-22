@@ -5,77 +5,90 @@
   font-family: "Playball", cursive;
   font-weight: normal;
   text-align: center;
-  color: #3498db; /* Accent color */
 }
 
-/* Sign-up Section */
+/* Container styles for sign-up form */
 .core_signUp {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-/* Text Link */
+/* Text link styles */
 .core_text {
-  color: #3498db; /* Accent color */
+  color: rgb(6, 153, 211);
   text-align: center;
   cursor: pointer;
 }
 
-/* Header */
+/* Header styles */
 .core_header {
   position: sticky;
   top: 0;
   background-color: white;
   padding: 20px;
   border-bottom: 1px solid lightgray;
+  object-fit: contain;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 1;
+  justify-content: space-between;
 }
 
-/* Button Container */
-.core_buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-/* Generic Button Styles */
-.core_button {
-  background-color: rgba(52, 152, 219, 0.8); /* Accent color with transparency */
-  color: #fff;
-  padding: 12px 24px; /* 調整されたパディング */
+/* Modal button styles */
+.core_btnModal {
+  background-color: transparent;
+  color: gray;
+  padding-top: 3px;
+  font-size: 32px;
   border: none;
-  border-radius: 8px;
-  font-size: 16px; /* 調整されたフォントサイズ */
+  outline: none;
   cursor: pointer;
-  margin: 0 8px; /* 調整されたマージン */
-  transition: background-color 0.3s ease;
 }
 
-.core_button:hover {
-  background-color: rgba(33, 125, 187, 0.8); /* Darker shade with transparency for hover */
-}
-
-/* Logout Section */
+/* Logout section styles */
 .core_logout {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
-/* Posts Section */
+/* Posts section styles */
 .core_posts {
   padding: 20px;
 }
 
-/* Loading Spinner */
+/* Loading spinner styles */
 .core_progress {
   margin-top: 15px;
   display: flex;
   justify-content: center;
-  color: #3498db; /* Accent color */
+}
+/* Core.module.css */
+
+/* ... (既存のスタイル) ... */
+
+/* Styling for the Now and Was buttons */
+.core_tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.core_tabButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  color: #333;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+
+  /* 初期状態ではボーダーなし */
+  border-bottom: 2px solid transparent;
+}
+
+.core_tabButton:hover,
+.core_tabButton.active {
+  color: rgb(6, 153, 211);
+  border-bottom: 2px solid rgb(6, 153, 211);
 }
