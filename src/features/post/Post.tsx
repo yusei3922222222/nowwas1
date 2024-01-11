@@ -132,7 +132,7 @@ const Post: React.FC<PROPS_POST> = ({
           <input
             className={styles.post_input}
             type="text"
-            placeholder="コメント"
+            placeholder="add a comment"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />

@@ -1,11 +1,11 @@
-import { createSelector, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import axios from "axios";
 import { PROPS_NEWNOTE } from "../types";
 
-const selectNoteState = (state: RootState) => state.note;
-
 const apiUrlNote = `${process.env.REACT_APP_DEV_API_URL}api/note/`;
+console.log('API URL:', apiUrlNote);
+
 
 export const fetchAsyncGetNotes = createAsyncThunk("note/get", async () => {
   const res = await axios.get(apiUrlNote, {
@@ -17,7 +17,7 @@ export const fetchAsyncGetNotes = createAsyncThunk("note/get", async () => {
 });
 
 export const fetchAsyncNewNote = createAsyncThunk(
-  "note/post",
+  "note/note",
   async (newNote: PROPS_NEWNOTE) => {
     const uploadData = new FormData();
     uploadData.append("title", newNote.title);
@@ -40,35 +40,23 @@ export const noteSlice = createSlice({
       {
         id: 0,
         title: "",
-        usernote: 0,
+        userNote: 0,
         created_on: "",
       },
     ],
   },
   reducers: {
     fetchNoteStart(state) {
-      return {
-        ...state,
-        isLoadingNote: true,
-      };
+      state.isLoadingNote = true;
     },
     fetchNoteEnd(state) {
-      return {
-        ...state,
-        isLoadingNote: false,
-      };
+      state.isLoadingNote = false;
     },
     setOpenNewNote(state) {
-      return {
-        ...state,
-        openNewNote: true,
-      };
+      state.openNewNote = true;
     },
     resetOpenNewNote(state) {
-      return {
-        ...state,
-        openNewNote: false,
-      };
+      state.openNewNote = false;
     },
   },
   extraReducers: (builder) => {
@@ -95,9 +83,8 @@ export const {
 } = noteSlice.actions;
 
 export const selectIsLoadingNote = (state: RootState) =>
-  selectNoteState(state).isLoadingNote;
+  state.note.isLoadingNote;
 export const selectOpenNewNote = (state: RootState) => state.note.openNewNote;
-
 export const selectNotes = (state: RootState) => state.note.notes;
 
 export default noteSlice.reducer;

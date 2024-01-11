@@ -1,57 +1,49 @@
 /* Note.module.css */
 
 .note {
-  display: flex;
-  padding: 15px;
-  border: 1px solid #ddd; /* Lighter border */
-  margin-bottom: 15px;
+  border: 2px solid #69d0ff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 20px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease; /* Hover effect */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .note:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
-.userProfile {
+.note_header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-right: 15px;
+  margin-bottom: 12px;
 }
 
-.userProfile img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-bottom: 5px;
-  object-fit: cover; /* Circular image */
+.note_avatar {
+  margin-right: 12px;
 }
 
-.noteContent {
-  flex: 1;
+.note_text {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #333;
 }
 
-.noteContent p {
+.note h3 {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333; /* Darker text color */
+  font-size: 24px;
+  color: #69d0ff;
 }
 
-.newPostButton {
-  background-color: #2196f3; /* Button background color */
-  color: #fff;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.note h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
 }
 
-.newPostButton:hover {
-  background-color: #1565c0; /* Hover background color */
+.note_divider {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-top: 2px solid #ddd;
 }

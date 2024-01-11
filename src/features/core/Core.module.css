@@ -43,6 +43,19 @@
   outline: none;
   cursor: pointer;
 }
+.core_btnModal.note {
+  display: block;
+}
+
+/* 新しいスタイル: activeTabが"post"の場合のスタイル */
+.core_btnModal.post {
+  display: block;
+}
+
+/* 新しいスタイル: activeTabが"note"でない、かつ"post"でない場合のスタイル */
+.core_btnModal.none {
+  display: none;
+}
 
 /* Logout section styles */
 .core_logout {
@@ -61,9 +74,6 @@
   display: flex;
   justify-content: center;
 }
-/* Core.module.css */
-
-/* ... (既存のスタイル) ... */
 
 /* Styling for the Now and Was buttons */
 .core_tabs {
@@ -91,4 +101,21 @@
 .core_tabButton.active {
   color: rgb(6, 153, 211);
   border-bottom: 2px solid rgb(6, 153, 211);
+}
+
+/* New Note button styles */
+.core_newNoteButton {
+  background-color: rgb(6, 153, 211);
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(3, 121, 170);
+  }
 }

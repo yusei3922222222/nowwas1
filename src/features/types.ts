@@ -19,13 +19,14 @@ export interface PROPS_NICKNAME {
 }
 export interface PROPS_NEWNOTE {
   title: string;
-  
 }
+
+/*Post.tsx*/
 export interface PROPS_NOTE {
   noteId: number;
+  loginId: number;
+  userNote: number;
   title: string;
-  userImg: string;
-  nickName: string;
 }
 /*postSlice.ts*/
 export interface PROPS_NEWPOST {

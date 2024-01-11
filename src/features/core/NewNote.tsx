@@ -7,26 +7,25 @@ import { AppDispatch } from "../../app/store";
 
 import styles from "./Core.module.css";
 
-import { File } from "../types";
-
 import {
   selectOpenNewNote,
   resetOpenNewNote,
   fetchNoteStart,
   fetchNoteEnd,
   fetchAsyncNewNote,
-} from "../Note/noteSlice";
+} from "../note/noteSlice";
 
-import { Button, TextField, IconButton } from "@material-ui/core";
+import { Button, TextField,IconButton } from "@material-ui/core";
 import { MdAddAPhoto } from "react-icons/md";
-
 const customStyles = {
   content: {
-    top: "50%",
+    top: "55%",
     left: "50%",
+
     width: 280,
     height: 220,
     padding: "50px",
+
     transform: "translate(-50%, -50%)",
   },
 };
@@ -35,22 +34,15 @@ const NewNote: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const openNewNote = useSelector(selectOpenNewNote);
 
-  const [image, setImage] = useState<File | null>(null);
-  const [title, setTitle] = useState("");
-
-  const handlerEditPicture = () => {
-    const fileInput = document.getElementById("imageInput");
-    fileInput?.click();
-  };
-
+  const [title, setTitle] = useState(""); // タイトルだけをstateに持つ
+  
   const newNote = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    const packet = { title: title, img: image };
+    const packet = { title: title };
     await dispatch(fetchNoteStart());
     await dispatch(fetchAsyncNewNote(packet));
     await dispatch(fetchNoteEnd());
     setTitle("");
-    setImage(null);
     dispatch(resetOpenNewNote());
   };
 
@@ -64,26 +56,17 @@ const NewNote: React.FC = () => {
         style={customStyles}
       >
         <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>SNS clone</h1>
+          <h1 className={styles.core_title}>Nowwas</h1>
           <br />
           <TextField
             placeholder="Please enter note title"
             type="text"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <input
-            type="file"
-            id="imageInput"
-            hidden={true}
-            onChange={(e) => setImage(e.target.files![0])}
-          />
           <br />
-          <IconButton onClick={handlerEditPicture}>
-            <MdAddAPhoto />
-          </IconButton>
-          <br />
+         
           <Button
-            disabled={!title || !image}
             variant="contained"
             color="primary"
             onClick={newNote}
@@ -97,3 +80,4 @@ const NewNote: React.FC = () => {
 };
 
 export default NewNote;
+

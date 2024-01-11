@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { TextField, Button, CircularProgress } from "@material-ui/core";
 
 import { fetchAsyncGetPosts, fetchAsyncGetComments } from "../post/postSlice";
-
+import { fetchAsyncGetNotes} from "../note/noteSlice";
 import {
   selectIsLoadingAuth,
   selectOpenSignIn,
@@ -68,7 +68,7 @@ const Auth: React.FC = () => {
             if (fetchAsyncRegister.fulfilled.match(resultReg)) {
               await dispatch(fetchAsyncLogin(values));
               await dispatch(fetchAsyncCreateProf({ nickName: "anonymous" }));
-
+              await dispatch(fetchAsyncGetNotes());
               await dispatch(fetchAsyncGetProfs());
               await dispatch(fetchAsyncGetPosts());
               await dispatch(fetchAsyncGetComments());
@@ -171,6 +171,7 @@ const Auth: React.FC = () => {
             const result = await dispatch(fetchAsyncLogin(values));
             if (fetchAsyncLogin.fulfilled.match(result)) {
               await dispatch(fetchAsyncGetProfs());
+              await dispatch(fetchAsyncGetNotes());
               await dispatch(fetchAsyncGetPosts());
               await dispatch(fetchAsyncGetComments());
               await dispatch(fetchAsyncGetMyProf());

@@ -1,35 +1,61 @@
-// Note.tsx
-
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Note.module.css";
 
-interface NoteProps {
-  noteId: number;
-  title: string;
-  userImg: string;
-  nickName: string;
-  onNewPost?: () => void; // 新規投稿ボタンのコールバック関数
-}
+import { makeStyles } from "@material-ui/core/styles";
+import { Avatar, Divider, Checkbox } from "@material-ui/core";
+import { Favorite, FavoriteBorder } from "@material-ui/icons";
 
-const Note: React.FC<NoteProps> = ({ noteId, title, userImg, nickName, onNewPost }) => {
-  return (
-    <div className={styles.note}>
-      <div className={styles.userProfile}>
-        <img src={userImg} alt="user profile" />
-        <p>{nickName}</p>
-      </div>
+import AvatarGroup from "@material-ui/lab/AvatarGroup";
 
-      <div className={styles.noteContent}>
-        <p>Note ID: {noteId}</p>
-        <p>Title: {title}</p>
-        {onNewPost && (
-          <button className={styles.newPostButton} onClick={onNewPost}>
-            New Post
-          </button>
-        )}
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch } from "../../app/store";
+
+import { selectProfiles } from "../auth/authSlice";
+
+import {
+  fetchNoteStart,
+  fetchNoteEnd,
+} from "./noteSlice";
+
+import { PROPS_NOTE } from "../types";
+
+const useStyles = makeStyles((theme) => ({
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+    marginRight: theme.spacing(1),
+  },
+}));
+
+const Note: React.FC<PROPS_NOTE> = ({
+  noteId,
+  loginId,
+  userNote,
+  title,
+}) => {
+  const classes = useStyles();
+  const dispatch: AppDispatch = useDispatch();
+  const profiles = useSelector(selectProfiles);
+  const [text, setText] = useState("");
+
+  const prof = profiles.filter((prof) => {
+    return prof.userProfile === userNote;
+  });
+
+
+  if (title) {
+    return (
+      <div className={styles.note}>
+        <div className={styles.note_header}>
+          <Avatar className={styles.note_avatar} src={prof[0]?.img} />
+          <h3>{prof[0]?.nickName}: {title}</h3>　
+        </div>
+
+        
       </div>
-    </div>
-  );
+    );
+  }
+  return null;
 };
 
 export default Note;

@@ -22,11 +22,11 @@ import { MdAddAPhoto } from "react-icons/md";
 
 const customStyles = {
   content: {
-    top: "55%",
+    top: "60%",
     left: "50%",
 
-    width: 280,
-    height: 220,
+    width: 300,
+    height: 350,
     padding: "50px",
 
     transform: "translate(-50%, -50%)",
